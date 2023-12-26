@@ -1,0 +1,14 @@
+.card-container {
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 5%;
+  transition: 0.5s;
+}
+
+.card-container:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}

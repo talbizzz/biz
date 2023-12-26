@@ -1,0 +1,33 @@
+.gallery-configuration-screen-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.image {
+  object-fit: contain;
+  background-color: #dfe6da;
+  padding: 20px;
+  transition: 0.5s;
+  width: 200px;
+  height: 300px;
+}
+
+.image:hover {
+  cursor: pointer;
+  background-color: #125c3b;
+  transform: scale(1.1);
+}
+
+.images-container {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-start;
+  gap: 1px;
+  margin-top: 5%;
+}

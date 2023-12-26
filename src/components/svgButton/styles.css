@@ -1,0 +1,12 @@
+.svg-button {
+  transition: 0.5s;
+}
+
+.svg-button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.position-absolute {
+  position: absolute;
+}

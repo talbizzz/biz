@@ -1,0 +1,115 @@
+.card1 {
+  grid-area: personalData;
+}
+.card2 {
+  grid-area: images;
+}
+.card3 {
+  grid-area: otherMedias;
+}
+.card4 {
+  grid-area: schedule;
+}
+.card5 {
+  grid-area: one;
+}
+.card6 {
+  grid-area: two;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'personalData personalData images images'
+    'personalData personalData images images'
+    'schedule one  two otherMedias';
+  gap: 1%;
+  background-color: transparent;
+  height: 85vh;
+  width: 100%;
+  padding: 20px;
+}
+
+.home-external-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.home-container {
+  height: 100vh;
+  width: 90%;
+  padding: 0 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: lighter;
+  font-size: x-large;
+  width: 100%;
+  height: 15vh;
+}
+
+.title-text > b {
+  font-size: xx-large;
+}
+
+.profile-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.profile-icon {
+  padding: 1%;
+  transition: 0.5s;
+}
+.home-header {
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1%;
+  border-bottom-width: 0.1px;
+  border-bottom-style: solid;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.home-button {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  height: 10%;
+  border-radius: 30px;
+  border: 'solid 1px';
+  font-weight: bold;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-weight: lighter;
+  font-size: xx-large;
+}
+
+.username-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-weight: lighter;
+  font-size: large;
+}

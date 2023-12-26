@@ -1,0 +1,74 @@
+.links-container {
+  z-index: 1;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 2%;
+}
+
+.container-vertical {
+  width: 10px;
+  height: 100vh;
+}
+
+.container-horizontal {
+  width: 100vw;
+}
+
+.navbar-mobile-button {
+  background-color: rgba(255, 255, 255, 0);
+  color: #fff;
+  position: fixed;
+  z-index: 1;
+  right: 0;
+  top: 0;
+  height: 7vh;
+  width: 14vw;
+  border-radius: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.links-container > a:visited,
+.links-container > a:link,
+.navbar-mobile > a:visited,
+.navbar-mobile > a:link {
+  text-decoration: none;
+  color: white;
+}
+
+.links-container > div {
+  color: white;
+  cursor: pointer;
+}
+
+.navbar-mobile {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(44, 49, 55, 0.8);
+  left: 0;
+  top: 0;
+  position: fixed;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-mobile > a > p {
+  color: #fffff2;
+  font-size: xx-large;
+  font-weight: lighter;
+}
+
+.navbarLink {
+  transition: all 1s ease;
+}
+.navbarLink:hover {
+  cursor: pointer;
+  font-size: 1.5em;
+  transform: translate(5px, -5px);
+}

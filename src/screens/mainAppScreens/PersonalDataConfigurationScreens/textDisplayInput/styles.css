@@ -1,0 +1,96 @@
+.text-display-input-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  font-size: large;
+  font-weight: normal;
+  margin: 3%;
+}
+
+.text-display-input-input {
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: large;
+  font-weight: light;
+  color: #125c3b;
+}
+
+.text-display-input-value:hover {
+  cursor: pointer;
+}
+
+.text-display-input-input:focus {
+  border: none;
+  border: 2px solid #125c3b;
+  background-color: rgba(18, 92, 59, 0.3);
+  color: #125c3b;
+}
+
+.text-display-input-LabelInput:focus {
+  border: none;
+  border: 2px solid #125c3b;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #125c3b;
+}
+
+.text-display-input-LabelInput {
+  text-align: center;
+  width: 40%;
+  border: 1px solid #125c3b;
+  border-radius: 10px 0 0 10px;
+}
+.cell-design {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 4% 0;
+  text-align: center;
+}
+
+.text-display-input-value,
+.text-display-input-input {
+  background-color: rgba(18, 92, 59, 1);
+  color: white;
+  width: 60%;
+  border: 1px solid #125c3b;
+  border-radius: 0 10px 10px 0;
+}
+
+.text-display-input-label {
+  width: 40%;
+  border: 1px solid #125c3b;
+  border-radius: 10px 0 0 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-display-input-labelInput {
+  width: 40%;
+  border: 1px solid #125c3b;
+  border-radius: 10px 0 0 10px;
+  text-align: center;
+  outline: none;
+  font-size: large;
+  font-weight: light;
+  color: #125c3b;
+}
+
+.minusButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  font-size: xx-large;
+  font-weight: lighter;
+  padding-bottom: 5px;
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  font-weight: lighter;
+  background-color: red;
+  color: white;
+  border: 2px solid red;
+  margin-right: 5%;
+}
