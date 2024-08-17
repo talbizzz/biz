@@ -32,7 +32,6 @@ export const TextEditor = (props: TextEditorProps) => {
           placeholder='write your content ....'
           onChange={handleProcedureContentChange}
           style={styles.editor}
-          onBlur={() => setEditText(false)}
         />
       ) : (
         <div

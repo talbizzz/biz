@@ -24,26 +24,30 @@ export const ProfileScreen = () => {
       })
   }
 
-  return loading ? (
-    <ClipLoader
-      color={backgroundLight}
-      loading={true}
-      cssOverride={styles.loadingSpinner}
-      size={150}
-      aria-label='Loading Spinner'
-      data-testid='loader'
-    />
-  ) : (
+  return (
     <div style={styles.container}>
-      <TextButton text='Disconnect' onClick={handleSignOut} backgroundColor='red' />
-      <SVGButton
-        type={SVGButtonTypes.ArrowLeft}
-        onClick={() => {
-          navigate(-1)
-        }}
-        style={globalStyles.backButtonStyle}
-        positionAbsolute
-      />
+      {loading ? (
+        <ClipLoader
+          color={backgroundLight}
+          loading={true}
+          cssOverride={globalStyles.loadingSpinner}
+          size={150}
+          aria-label='Loading Spinner'
+          data-testid='loader'
+        />
+      ) : (
+        <>
+          <TextButton text='Disconnect' onClick={handleSignOut} backgroundColor='red' />
+          <SVGButton
+            type={SVGButtonTypes.ArrowLeft}
+            onClick={() => {
+              navigate(-1)
+            }}
+            style={globalStyles.backButtonStyle}
+            positionAbsolute
+          />
+        </>
+      )}
     </div>
   )
 }
@@ -56,10 +60,5 @@ const styles = {
     justifyContent: 'center',
     height: '100vh',
     width: '100vw',
-  },
-  loadingSpinner: {
-    display: 'block',
-    margin: '0 auto',
-    borderColor: background,
   },
 }

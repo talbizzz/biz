@@ -20,6 +20,7 @@ export const useHandleUploadImages = () => {
   const [imageToUploadDescription, setImageToUploadDescription] = useState<string>('')
   const [imageToUploadCopyright, setImageToUploadCopyright] = useState<string>('')
   const [images, setImages] = useState(storedImages)
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
   const storedImagesSize = storedImages?.length
@@ -32,12 +33,14 @@ export const useHandleUploadImages = () => {
   const uploadNewImageToFirebaseStorage = async () => {
     if (imageToUpload) {
       const fileImageRef = ref(storage, pathToUploadedImage)
+      setLoading(true)
       await uploadBytes(fileImageRef, imageToUpload)
         .then(() => {
           console.log(`new image ${uuid()} uploaded to firebase storage`)
         })
         .finally(() => {
           getUploadedImageDownloadURL()
+          setLoading(false)
         })
     }
   }
@@ -47,17 +50,21 @@ export const useHandleUploadImages = () => {
    */
   const getUploadedImageDownloadURL = () => {
     const imgRef = ref(storage, pathToUploadedImage)
-
-    getDownloadURL(imgRef).then((url) => {
-      const newImage: ImageType = {
-        uid: uuid(),
-        url: url,
-        title: imageToUploadTitle,
-        description: imageToUploadDescription,
-        copyright: imageToUploadCopyright,
-      }
-      setImages([...images, newImage])
-    })
+    setLoading(true)
+    getDownloadURL(imgRef)
+      .then((url) => {
+        const newImage: ImageType = {
+          uid: uuid(),
+          url: url,
+          title: imageToUploadTitle,
+          description: imageToUploadDescription,
+          copyright: imageToUploadCopyright,
+        }
+        setImages([...images, newImage])
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   }
 
   /**
@@ -88,11 +95,13 @@ export const useHandleUploadImages = () => {
    * @param images new images list
    */
   const modifyImages = (images: ImageType[]) => {
+    setLoading(true)
     updateImagesInReduxAndFirestore(images, uid, dispatch)
       .then(() => {
         getUserPhotosAndAddToLocalStorage(uid, dispatch)
       })
       .finally(() => {
+        setLoading(false)
         navigate(-1)
       })
   }
@@ -110,5 +119,6 @@ export const useHandleUploadImages = () => {
     imageToUpload,
     modifyImages,
     images,
+    loading,
   }
 }

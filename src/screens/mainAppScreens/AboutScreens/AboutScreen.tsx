@@ -46,7 +46,7 @@ export const AboutScreen = () => {
         <ClipLoader
           color={backgroundLight}
           loading={true}
-          cssOverride={styles.loadingSpinner}
+          cssOverride={globalStyles.loadingSpinner}
           size={150}
           aria-label='Loading Spinner'
           data-testid='loader'
@@ -136,10 +136,5 @@ const styles = {
     alignItems: 'center',
     height: '100%',
     width: '40%',
-  },
-  loadingSpinner: {
-    display: 'block',
-    margin: '0 auto',
-    borderColor: background,
   },
 }

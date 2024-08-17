@@ -23,6 +23,8 @@ import { ScheduleEntryConfigurationScreen } from './screens/mainAppScreens/Sched
 import { AboutScreen } from './screens/mainAppScreens/AboutScreens/AboutScreen'
 import { NavBar } from './components/navbar/Navbar'
 import { ProfileScreen } from './screens/authenticationScreens/ProfileScreen'
+import MediaQuery from 'react-responsive'
+import { TextAlign } from './constants/StylingConstants'
 
 function App() {
   const dispatch = useDispatch()
@@ -51,27 +53,58 @@ function App() {
   return loading ? (
     <div>Loading...</div>
   ) : (
-    <Routes>
-      <Route path='/' element={<Welcome />} />
-      <Route path='/home' element={<Home />} />
-      <Route path='/authentication' element={<Authentication />} />
-      <Route path='/personalData-configuration' element={<PersonalDataConfiguration />} />
-      <Route path='/other-assets-configuration' element={<OtherAssetsScreen />} />
-      <Route path='/gallery-configuration' element={<GalleryConfigurationScreen />} />
-      <Route path='/gallery-configuration/view-or-configure-image' element={<SingleImageView />} />
-      <Route path='/gallery-configuration/add-and-configure-new-image' element={<AddImageView />} />
-      <Route path='/videos-configuration' element={<VideosConfigurationScreen />} />
-      <Route path='/audios-configuration' element={<AudioConfigurationScreen />} />
-      <Route path='/audios-configuration/view-or-configure-audio' element={<SingleAudioScreen />} />
-      <Route path='/schedule-configuration' element={<ScheduleConfigurationScreen />} />
-      <Route
-        path='/schedule-configuration/view-or-configure-schedule-entry'
-        element={<ScheduleEntryConfigurationScreen />}
-      />
-      <Route path='/about-yourself' element={<AboutScreen />} />
-      <Route path='/profile' element={<ProfileScreen />} />
-    </Routes>
+    <>
+      <MediaQuery minWidth={900}>
+        <Routes>
+          <Route path='/' element={<Welcome />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/authentication' element={<Authentication />} />
+          <Route path='/personalData-configuration' element={<PersonalDataConfiguration />} />
+          <Route path='/other-assets-configuration' element={<OtherAssetsScreen />} />
+          <Route path='/gallery-configuration' element={<GalleryConfigurationScreen />} />
+          <Route
+            path='/gallery-configuration/view-or-configure-image'
+            element={<SingleImageView />}
+          />
+          <Route
+            path='/gallery-configuration/add-and-configure-new-image'
+            element={<AddImageView />}
+          />
+          <Route path='/videos-configuration' element={<VideosConfigurationScreen />} />
+          <Route path='/audios-configuration' element={<AudioConfigurationScreen />} />
+          <Route
+            path='/audios-configuration/view-or-configure-audio'
+            element={<SingleAudioScreen />}
+          />
+          <Route path='/schedule-configuration' element={<ScheduleConfigurationScreen />} />
+          <Route
+            path='/schedule-configuration/view-or-configure-schedule-entry'
+            element={<ScheduleEntryConfigurationScreen />}
+          />
+          <Route path='/about-yourself' element={<AboutScreen />} />
+          <Route path='/profile' element={<ProfileScreen />} />
+        </Routes>
+      </MediaQuery>
+      <MediaQuery maxWidth={900}>
+        <div style={styles.container}>
+          ⚠️ Sorry but this app is not available on smaller screens yet. Please use a larger device.
+          ⚠️
+        </div>
+      </MediaQuery>
+    </>
   )
+}
+
+const styles = {
+  container: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
+    width: '100vw',
+    fontSize: 30,
+    textAlign: TextAlign.center,
+  },
 }
 
 export default App

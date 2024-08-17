@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { GlobalStateType } from '../../../types/GlobalStateType'
+import React, { useEffect } from 'react'
 import { TextDisplayInput } from '../PersonalDataConfigurationScreens/textDisplayInput/TextDisplayInput'
 import { FlexDirection, Overflow } from '../../../constants/StylingConstants'
 import { TextButton } from '../../../components/textButton/TextButton'
@@ -10,7 +8,7 @@ import { SVGButton, SVGButtonTypes } from '../../../components/svgButton/SVGButt
 import { v4 as uuid } from 'uuid'
 import { useHandleScheduleConnect } from './utils/useHandleScheduleConnect'
 import ClipLoader from 'react-spinners/ClipLoader'
-import { background, backgroundLight, black } from '../../../assets/styles/colors'
+import { background, backgroundLight } from '../../../assets/styles/colors'
 import { globalStyles } from '../../../assets/styles/globalStyles'
 
 type ModulablePerfomerType = { uid: string } & PerformerType
@@ -56,7 +54,7 @@ export const ScheduleEntryConfigurationScreen = () => {
         <ClipLoader
           color={backgroundLight}
           loading={true}
-          cssOverride={styles.loadingSpinner}
+          cssOverride={globalStyles.loadingSpinner}
           size={150}
           aria-label='Loading Spinner'
           data-testid='loader'
@@ -197,10 +195,5 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 50,
-  },
-  loadingSpinner: {
-    display: 'block',
-    margin: '0 auto',
-    borderColor: background,
   },
 }
