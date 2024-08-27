@@ -1,7 +1,5 @@
 import { doc, getDoc, setDoc } from 'firebase/firestore/lite'
 import { db } from '../config/firebase'
-import { Dispatch } from 'react'
-import { AnyAction } from '@reduxjs/toolkit'
 import { AppointmentType } from '../types/ScheduleTypes'
 import { setSchedule } from '../store/slices/scheduleSlice/scheduleSlice'
 import { postDataToFirestore } from './common'
@@ -18,10 +16,7 @@ export const getScheduleFromFirestore = async (uid: string) => {
   }
 }
 
-export const fetchScheduleAndAddToLocalStorage = async (
-  dispatch: Dispatch<AnyAction>,
-  uid: string,
-) => {
+export const fetchScheduleAndAddToLocalStorage = async (dispatch: any, uid: string) => {
   // set the images in Zustand
   const schedule = await getScheduleFromFirestore(uid)
   dispatch(setSchedule(schedule))
@@ -37,7 +32,7 @@ export const updateScheduleInFirestore = async (schedule: AppointmentType[], uid
 export const updateScheduleInReduxAndFirestore = async (
   schedule: AppointmentType[],
   uid: string,
-  dispatch: Dispatch<AnyAction>,
+  dispatch: any,
 ) => {
   dispatch(setSchedule(schedule))
   await updateScheduleInFirestore(schedule, uid)

@@ -56,7 +56,11 @@ export const AboutScreen = () => {
           <div style={styles.contentContainer}>
             <div style={styles.textAndButtonContainer}>
               <TextButton
-                text={currentTextLanguage === TextLanguage.DE ? 'English' : 'German'}
+                text={
+                  currentTextLanguage === TextLanguage.DE
+                    ? 'Switch to English text'
+                    : 'Switch to German text'
+                }
                 onClick={() =>
                   setCurrentTextLanguage(
                     currentTextLanguage === TextLanguage.DE ? TextLanguage.EN : TextLanguage.DE,

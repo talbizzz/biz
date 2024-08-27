@@ -1,15 +1,5 @@
-import {
-  DocumentData,
-  DocumentReference,
-  collection,
-  doc,
-  getDoc,
-  getDocs,
-  setDoc,
-} from 'firebase/firestore/lite'
+import { doc, getDoc } from 'firebase/firestore/lite'
 import { db } from '../config/firebase'
-import { Dispatch } from 'react'
-import { AnyAction } from '@reduxjs/toolkit'
 import { setImages } from '../store/slices/assetsSlice/imagesSlice'
 import { setAudios } from '../store/slices/assetsSlice/audiosSlice'
 import { setYoutubeVideos } from '../store/slices/assetsSlice/youtubeVideoSlice'
@@ -48,40 +38,28 @@ export const getUserYoutubeVideosFromFirestore = async (uid: string) => {
   }
 }
 
-export const getUserPhotosAndAddToLocalStorage = async (
-  uid: string,
-  dispatch: Dispatch<AnyAction>,
-) => {
+export const getUserPhotosAndAddToLocalStorage = async (uid: string, dispatch: any) => {
   // Fetch updated data after waiting for Firestore update to complete
   await getUserPhotosFromFirestore(uid).then((data) => {
     dispatch(setImages(data))
   })
 }
 
-export const getUserYoutubeVideosAndAddToLocalStorage = async (
-  uid: string,
-  dispatch: Dispatch<AnyAction>,
-) => {
+export const getUserYoutubeVideosAndAddToLocalStorage = async (uid: string, dispatch: any) => {
   // Fetch updated data after waiting for Firestore update to complete
   await getUserYoutubeVideosFromFirestore(uid).then((data) => {
     dispatch(setYoutubeVideos(data))
   })
 }
 
-export const getUserAudiosAndAddToLocalStorage = async (
-  uid: string,
-  dispatch: Dispatch<AnyAction>,
-) => {
+export const getUserAudiosAndAddToLocalStorage = async (uid: string, dispatch: any) => {
   // Fetch updated data after waiting for Firestore update to complete
   await getUserAudiosFromFirestore(uid).then((data) => {
     dispatch(setAudios(data))
   })
 }
 
-export const fetchAssetsAndAddToLocalStorage = async (
-  dispatch: Dispatch<AnyAction>,
-  uid: string,
-) => {
+export const fetchAssetsAndAddToLocalStorage = async (dispatch: any, uid: string) => {
   // set the images in Zustand
   const images = await getUserPhotosFromFirestore(uid)
   dispatch(setImages(images))
@@ -104,7 +82,7 @@ const updateImagesInFirestore = async (images: ImageType[], uid: string) => {
 export const updateImagesInReduxAndFirestore = async (
   images: ImageType[],
   uid: string,
-  dispatch: Dispatch<AnyAction>,
+  dispatch: any,
 ) => {
   // Update Redux state
   dispatch(setImages(images))
@@ -121,7 +99,7 @@ const updateAudiosInFirestore = (audios: AudioType[], uid: string) => {
 export const updateAudiosInReduxAndFirestore = async (
   audios: AudioType[],
   uid: string,
-  dispatch: Dispatch<AnyAction>,
+  dispatch: any,
 ) => {
   dispatch(setAudios(audios))
   await updateAudiosInFirestore(audios, uid)
@@ -135,7 +113,7 @@ const updateYoutubeVideosInFirestore = (youtubeVideos: YoutubeVideoType[], uid: 
 export const updateYoutubeVideosInReduxAndFirestore = async (
   youtubeVideos: YoutubeVideoType[],
   uid: string,
-  dispatch: Dispatch<AnyAction>,
+  dispatch: any,
 ) => {
   dispatch(setYoutubeVideos(youtubeVideos))
   await updateYoutubeVideosInFirestore(youtubeVideos, uid)

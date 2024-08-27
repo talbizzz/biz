@@ -3,7 +3,7 @@ import 'quill/dist/quill.snow.css'
 import ReactQuill from 'react-quill'
 import { formats, modules } from '../utils/constants'
 import { background } from '../../../../assets/styles/colors'
-import * as DOMPurify from 'dompurify'
+import DOMPurify from 'dompurify'
 import '../styles/styles.css'
 import { Overflow } from '../../../../constants/StylingConstants'
 

@@ -24,7 +24,7 @@ export const useHandleAuthentication = () => {
   const dispatch = useDispatch()
   const navigation = useNavigate()
   const [authenticationFormType, setAuthenticationFormType] = useState<AuthenticationFormType>(
-    AuthenticationFormType.SignUp,
+    AuthenticationFormType.SignIn,
   )
 
   const handleEmailSignUp = async () => {

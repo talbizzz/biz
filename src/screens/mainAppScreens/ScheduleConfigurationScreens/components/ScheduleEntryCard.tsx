@@ -32,12 +32,10 @@ function getDateWithMonthName(date: string): string {
 }
 
 export const ScheduleEntryCard = (props: ScheduleEntryCardProps) => {
-  const { setAppointmentIsNew } = useHandleScheduleConnect()
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const handleClick = () => {
     dispatch(setCurrentAppointment(props.scheduleEntry))
-    setAppointmentIsNew(false)
     navigate('/schedule-configuration/view-or-configure-schedule-entry')
   }
 

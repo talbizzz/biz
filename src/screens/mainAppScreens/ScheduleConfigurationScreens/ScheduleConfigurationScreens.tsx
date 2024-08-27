@@ -12,12 +12,11 @@ import { setCurrentAppointment } from '../../../store/slices/scheduleSlice/sched
 import { useDispatch } from 'react-redux'
 
 export const ScheduleConfigurationScreen = () => {
-  const { schedule, setAppointmentIsNew } = useHandleScheduleConnect()
+  const { schedule } = useHandleScheduleConnect()
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const handleAddNewAppointment = () => {
-    setAppointmentIsNew(true)
     dispatch(setCurrentAppointment({}))
     navigate('/schedule-configuration/view-or-configure-schedule-entry')
   }

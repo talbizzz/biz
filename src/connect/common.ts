@@ -1,9 +1,6 @@
-import { DocumentData, DocumentReference, setDoc } from 'firebase/firestore/lite'
+import { DocumentReference, setDoc } from 'firebase/firestore/lite'
 
-export const postDataToFirestore = async (
-  ref: DocumentReference<DocumentData, DocumentData>,
-  data: object,
-) => {
+export const postDataToFirestore = async (ref: DocumentReference, data: object) => {
   try {
     console.log('data: ', data)
     await setDoc(ref, { data })

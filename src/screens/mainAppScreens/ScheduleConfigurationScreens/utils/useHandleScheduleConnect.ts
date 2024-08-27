@@ -7,12 +7,11 @@ import {
 } from '../../../../connect/userScheduleRequests'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { a } from 'react-spring'
+import { v4 as uuid } from 'uuid'
 
 export const useHandleScheduleConnect = () => {
   const schedule = useSelector((state: GlobalStateType) => state.scheduleSlice.schedule)
   const uid = useSelector((state: GlobalStateType) => state.userSlice.user.uid)
-  const [appointmentIsNew, setAppointmentIsNew] = useState(false)
   const currentAppointment = useSelector(
     (state: GlobalStateType) => state.scheduleSlice.currentAppointment,
   )
@@ -24,15 +23,20 @@ export const useHandleScheduleConnect = () => {
   const [loading, setLoading] = useState(false)
 
   const updateCurrentAppointmentInSchedule = () => {
-    const newSchedule = appointmentIsNew
-      ? [...schedule, appointmentToModify]
-      : schedule.map((appointment: AppointmentType) => {
-          if (appointment.id === appointmentToModify.id) {
-            return appointmentToModify
-          }
-          return appointment
-        })
+    console.log('appointmentToModify: ', appointmentToModify)
+    console.log('schedule: ', schedule)
+    console.log('currentAppointment.id?: ', currentAppointment.id === undefined)
+    const newSchedule =
+      currentAppointment.id === undefined
+        ? [...schedule, { ...appointmentToModify, id: uuid() }]
+        : schedule.map((appointment: AppointmentType) => {
+            if (appointment.id === appointmentToModify.id) {
+              return appointmentToModify
+            }
+            return appointment
+          })
     setLoading(true)
+    console.log('newSchedule: ', newSchedule)
     updateScheduleInReduxAndFirestore(newSchedule, uid, dispatch).then(() => {
       setLoading(false)
       navigate(-1)
@@ -57,7 +61,6 @@ export const useHandleScheduleConnect = () => {
   return {
     loading,
     appointmentToModify,
-    setAppointmentIsNew,
     setAppointmentToModify,
     schedule,
     currentAppointment,

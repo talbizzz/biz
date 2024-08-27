@@ -93,7 +93,7 @@ export const Authentication = () => {
           >
             {authenticationFormType === AuthenticationFormType.SignIn ? 'Sign In' : 'Sign Up'}
           </button>
-          <div className=''>
+          {/* <div className=''>
             <span className='switchAuthentication-text'>No account yet? </span>
             <span
               className='switchAuthentication-button clickableText-animation'
@@ -101,7 +101,7 @@ export const Authentication = () => {
             >
               {authenticationFormType === AuthenticationFormType.SignIn ? 'Sign Up' : 'Sign In'}
             </span>
-          </div>
+          </div> */}
         </div>
         <button className='google-button' onClick={handleGoogleSignIn}>
           <div>
