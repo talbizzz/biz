@@ -9,8 +9,7 @@ import { SVGButton, SVGButtonTypes } from '../../../../components/svgButton/SVGB
 import { globalStyles } from '../../../../assets/styles/globalStyles'
 
 export const GalleryConfigurationScreen = () => {
-  const { getUploadedImageDownloadURL, uploadNewImageToFirebaseStorage, images } =
-    useHandleUploadImages()
+  const { images } = useHandleUploadImages()
 
   const { handleOpenCurrentImage } = useHandleGalleryConfigurationState()
   const navigate = useNavigate()
@@ -21,10 +20,6 @@ export const GalleryConfigurationScreen = () => {
 
   const handleClickOnAddImage = () => {
     navigate('/gallery-configuration/add-and-configure-new-image')
-  }
-
-  const handleBack = () => {
-    navigate(-1)
   }
 
   return (

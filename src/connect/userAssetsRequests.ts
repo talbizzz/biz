@@ -5,6 +5,8 @@ import { setAudios } from '../store/slices/assetsSlice/audiosSlice'
 import { setYoutubeVideos } from '../store/slices/assetsSlice/youtubeVideoSlice'
 import { AudioType, ImageType, YoutubeVideoType } from '../types/AssetsTypes'
 import { postDataToFirestore } from './common'
+import { Dispatch } from 'react'
+import { Action } from '@reduxjs/toolkit'
 
 // ------- User Assets Getters ------- //
 
@@ -38,28 +40,37 @@ export const getUserYoutubeVideosFromFirestore = async (uid: string) => {
   }
 }
 
-export const getUserPhotosAndAddToLocalStorage = async (uid: string, dispatch: any) => {
+export const getUserPhotosAndAddToLocalStorage = async (
+  uid: string,
+  dispatch: Dispatch<Action>,
+) => {
   // Fetch updated data after waiting for Firestore update to complete
   await getUserPhotosFromFirestore(uid).then((data) => {
     dispatch(setImages(data))
   })
 }
 
-export const getUserYoutubeVideosAndAddToLocalStorage = async (uid: string, dispatch: any) => {
+export const getUserYoutubeVideosAndAddToLocalStorage = async (
+  uid: string,
+  dispatch: Dispatch<Action>,
+) => {
   // Fetch updated data after waiting for Firestore update to complete
   await getUserYoutubeVideosFromFirestore(uid).then((data) => {
     dispatch(setYoutubeVideos(data))
   })
 }
 
-export const getUserAudiosAndAddToLocalStorage = async (uid: string, dispatch: any) => {
+export const getUserAudiosAndAddToLocalStorage = async (
+  uid: string,
+  dispatch: Dispatch<Action>,
+) => {
   // Fetch updated data after waiting for Firestore update to complete
   await getUserAudiosFromFirestore(uid).then((data) => {
     dispatch(setAudios(data))
   })
 }
 
-export const fetchAssetsAndAddToLocalStorage = async (dispatch: any, uid: string) => {
+export const fetchAssetsAndAddToLocalStorage = async (dispatch: Dispatch<Action>, uid: string) => {
   // set the images in Zustand
   const images = await getUserPhotosFromFirestore(uid)
   dispatch(setImages(images))
@@ -82,7 +93,7 @@ const updateImagesInFirestore = async (images: ImageType[], uid: string) => {
 export const updateImagesInReduxAndFirestore = async (
   images: ImageType[],
   uid: string,
-  dispatch: any,
+  dispatch: Dispatch<Action>,
 ) => {
   // Update Redux state
   dispatch(setImages(images))
@@ -99,7 +110,7 @@ const updateAudiosInFirestore = (audios: AudioType[], uid: string) => {
 export const updateAudiosInReduxAndFirestore = async (
   audios: AudioType[],
   uid: string,
-  dispatch: any,
+  dispatch: Dispatch<Action>,
 ) => {
   dispatch(setAudios(audios))
   await updateAudiosInFirestore(audios, uid)
@@ -113,7 +124,7 @@ const updateYoutubeVideosInFirestore = (youtubeVideos: YoutubeVideoType[], uid: 
 export const updateYoutubeVideosInReduxAndFirestore = async (
   youtubeVideos: YoutubeVideoType[],
   uid: string,
-  dispatch: any,
+  dispatch: Dispatch<Action>,
 ) => {
   dispatch(setYoutubeVideos(youtubeVideos))
   await updateYoutubeVideosInFirestore(youtubeVideos, uid)

@@ -2,13 +2,10 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { GlobalStateType } from '../../../types/GlobalStateType'
-import { NavBar } from '../../../components/navbar/Navbar'
 import { background, white } from '../../../assets/styles/colors'
 import './styles.css'
-import { PressableCard } from '../../../components/pressableCard/pressableCard'
 import { PersonalDataPreviewComponent } from '../PersonalDataConfigurationScreens/PersonalDataPreviewComponent'
 import { ImagesPreviewComponent } from '../MediaScreens/components/ImagesPreviewComponent'
-import { VideosPreviewComponent } from '../MediaScreens/components/VideosPreviewComponent'
 import { fetchAssetsAndAddToLocalStorage } from '../../../connect/userAssetsRequests'
 import { CustomPreviewComponent } from './components/CustomPreviewComponent'
 import UserIcon from '../../../assets/UserIcon.svg'
@@ -16,8 +13,8 @@ import Audio from '../../../assets/Audio.svg'
 import Video from '../../../assets/Video.svg'
 import Calendar from '../../../assets/Calendar.svg'
 import Text from '../../../assets/Text.svg'
-import Settings from '../../../assets/Settings.svg'
 import { fetchScheduleAndAddToLocalStorage } from '../../../connect/userScheduleRequests'
+import { PressableCard } from '../../../components/pressableCard/PressableCard'
 
 export const Home = () => {
   const navigate = useNavigate()
@@ -104,11 +101,4 @@ export const Home = () => {
       </div>
     </div>
   )
-}
-function getUserImagesFromFirestore() {
-  throw new Error('Function not implemented.')
-}
-
-function dispatch(arg0: { payload: any; type: 'artistAssets/setImages' }) {
-  throw new Error('Function not implemented.')
 }

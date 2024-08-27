@@ -1,6 +1,5 @@
 import React from 'react'
 import { AppointmentType } from '../../../../types/ScheduleTypes'
-import { useHandleScheduleConnect } from '../utils/useHandleScheduleConnect'
 import { FlexDirection } from '../../../../constants/StylingConstants'
 import { useDispatch } from 'react-redux'
 import { setCurrentAppointment } from '../../../../store/slices/scheduleSlice/scheduleSlice'

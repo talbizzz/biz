@@ -1,8 +1,6 @@
 import React from 'react'
 import './styles.css'
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { GlobalStateType } from '../../../../../../types/GlobalStateType'
 import { TextDisplayInput } from '../../../../PersonalDataConfigurationScreens/textDisplayInput/TextDisplayInput'
 import { backgroundLight, white } from '../../../../../../assets/styles/colors'
 import Close from '../../../../../../assets/Close.svg'
@@ -31,8 +29,11 @@ export const AddImageView = () => {
     navigate(-1)
   }
 
-  const handleChange = (e: any) => {
-    setImageToUpload(e.target.files[0])
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (file) {
+      setImageToUpload(file)
+    }
   }
 
   const handleSubmit = () => {

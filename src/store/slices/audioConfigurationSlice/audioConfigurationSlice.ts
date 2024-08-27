@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { AudioType, ImageType, PerformerType } from '../../../types/AssetsTypes'
+import { AudioType, PerformerType } from '../../../types/AssetsTypes'
 
 export const audioConfigurationSlice = createSlice({
   name: 'audioConfigurationSlice',

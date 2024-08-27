@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { globalStyles } from '../../assets/styles/globalStyles'
 import { useHandleAuthentication } from './useHandleAuthentication'
 import { ClipLoader } from 'react-spinners'
-import { background, backgroundLight } from '../../assets/styles/colors'
+import { backgroundLight } from '../../assets/styles/colors'
 
 export const ProfileScreen = () => {
   const navigate = useNavigate()

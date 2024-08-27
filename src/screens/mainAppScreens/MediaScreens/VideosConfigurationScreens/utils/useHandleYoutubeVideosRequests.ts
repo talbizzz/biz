@@ -3,7 +3,6 @@ import { GlobalStateType } from '../../../../../types/GlobalStateType'
 import { useEffect, useState } from 'react'
 import {
   getUserYoutubeVideosAndAddToLocalStorage,
-  getUserYoutubeVideosFromFirestore,
   updateYoutubeVideosInReduxAndFirestore,
 } from '../../../../../connect/userAssetsRequests'
 

@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { ImageType } from '../../../../../../types/AssetsTypes'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'

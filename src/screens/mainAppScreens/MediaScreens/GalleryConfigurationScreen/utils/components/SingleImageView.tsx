@@ -1,16 +1,14 @@
 import React from 'react'
 import './styles.css'
 import { useNavigate } from 'react-router-dom'
-import { useHandleGalleryConfigurationState } from '../galleryUIState/useHandleGalleryConfigurationState'
 import { useSelector } from 'react-redux'
 import { GlobalStateType } from '../../../../../../types/GlobalStateType'
 import { TextDisplayInput } from '../../../../PersonalDataConfigurationScreens/textDisplayInput/TextDisplayInput'
-import { background, white } from '../../../../../../assets/styles/colors'
+import { white } from '../../../../../../assets/styles/colors'
 import Close from '../../../../../../assets/Close.svg'
 import ArrowRight from '../../../../../../assets/ArrowRight.svg'
 import { ImageType } from '../../../../../../types/AssetsTypes'
 import { useHandleUploadImages } from '../connect/useHandleUploadImages'
-import { updateImagesInReduxAndFirestore } from '../../../../../../connect/userAssetsRequests'
 import { TextButton } from '../../../../../../components/textButton/TextButton'
 
 export const SingleImageView = () => {

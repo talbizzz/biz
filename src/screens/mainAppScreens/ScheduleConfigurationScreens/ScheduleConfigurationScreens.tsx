@@ -1,5 +1,5 @@
 import React from 'react'
-import { background, white } from '../../../assets/styles/colors'
+import { background } from '../../../assets/styles/colors'
 import { useHandleScheduleConnect } from './utils/useHandleScheduleConnect'
 import { AppointmentType } from '../../../types/ScheduleTypes'
 import { FlexDirection, Overflow, TextAlign } from '../../../constants/StylingConstants'

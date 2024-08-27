@@ -21,7 +21,6 @@ import { SingleAudioScreen } from './screens/mainAppScreens/MediaScreens/AudiosC
 import { ScheduleConfigurationScreen } from './screens/mainAppScreens/ScheduleConfigurationScreens/ScheduleConfigurationScreens'
 import { ScheduleEntryConfigurationScreen } from './screens/mainAppScreens/ScheduleConfigurationScreens/ScheduleEntryConfigurationScreen'
 import { AboutScreen } from './screens/mainAppScreens/AboutScreens/AboutScreen'
-import { NavBar } from './components/navbar/Navbar'
 import { ProfileScreen } from './screens/authenticationScreens/ProfileScreen'
 import MediaQuery from 'react-responsive'
 import { TextAlign } from './constants/StylingConstants'

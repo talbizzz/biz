@@ -9,7 +9,6 @@ import { TextLanguage } from './constants'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { storage } from '../../../../config/firebase'
 import { v4 as uuid } from 'uuid'
-import { UserDescriptionTextType } from '../../../../types/UserDescriptionTextType'
 
 export const useHandleDescriptionTextFetching = () => {
   // Redux store states

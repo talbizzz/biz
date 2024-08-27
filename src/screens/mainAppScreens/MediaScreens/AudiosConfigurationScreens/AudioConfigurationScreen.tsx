@@ -9,7 +9,7 @@ import { TextButton } from '../../../../components/textButton/TextButton'
 import { globalStyles } from '../../../../assets/styles/globalStyles'
 
 export const AudioConfigurationScreen = () => {
-  const { audios, handleOnAudioOrAddClick, handleDeleteAudio } = useHandleAudiosUpload()
+  const { audios, handleOnAudioOrAddClick } = useHandleAudiosUpload()
   return (
     <div
       className='gallery-configuration-screen-container'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { background, white } from '../../../../assets/styles/colors'
+import { background } from '../../../../assets/styles/colors'
 import { SVGButton, SVGButtonTypes } from '../../../../components/svgButton/SVGButton'
 
 type NewLabelNewValueInputProps = {

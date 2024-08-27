@@ -1,4 +1,4 @@
-import React, { ReactHTMLElement, useEffect } from 'react'
+import React from 'react'
 import 'quill/dist/quill.snow.css'
 import ReactQuill from 'react-quill'
 import { formats, modules } from '../utils/constants'
@@ -15,7 +15,7 @@ export type TextEditorProps = {
 export const TextEditor = (props: TextEditorProps) => {
   const [editText, setEditText] = React.useState(true)
 
-  const handleProcedureContentChange = (content: any) => {
+  const handleProcedureContentChange = (content: string) => {
     if (content === '<p><br></p>') content = ''
     const sanitizedHtml = DOMPurify.sanitize(content)
     props.setText(sanitizedHtml)

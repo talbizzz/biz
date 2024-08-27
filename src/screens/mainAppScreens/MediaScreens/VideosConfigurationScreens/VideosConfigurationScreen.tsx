@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useHandleYoutubeVideosRequests } from './utils/useHandleYoutubeVideosRequests'
 import ReactPlayer from 'react-player'
 import './styles.css'

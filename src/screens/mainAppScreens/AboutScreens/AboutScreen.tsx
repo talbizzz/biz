@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { TextEditor } from './components/TextEditor'
 import { FlexDirection } from '../../../constants/StylingConstants'
 import { background, backgroundLight } from '../../../assets/styles/colors'
@@ -25,9 +25,12 @@ export const AboutScreen = () => {
     uploadNewImageToFirebaseStorageAndUpdateDescriptionText,
   } = useHandleDescriptionTextFetching()
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUploadingNewImage(true)
-    setImageToUpload(e.target.files[0])
+    const files = e.target.files
+    if (files && files.length > 0) {
+      setImageToUpload(files[0])
+    }
   }
 
   const onSaveModifications = () => {

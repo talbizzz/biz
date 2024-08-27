@@ -1,4 +1,4 @@
-import { getDownloadURL, listAll, ref, uploadBytes } from 'firebase/storage'
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { storage } from '../../../../../../config/firebase'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'

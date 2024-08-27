@@ -3,6 +3,8 @@ import { db } from '../config/firebase'
 import { postDataToFirestore } from './common'
 import { setDescriptionText } from '../store/slices/descriptionTextSlice/descriptionTextSlice'
 import { UserDescriptionTextType } from '../types/UserDescriptionTextType'
+import { Action } from '@reduxjs/toolkit'
+import { Dispatch } from 'react'
 
 // -------- Getters -------- //
 
@@ -16,7 +18,10 @@ export const getDescriptionTextFromFirestore = async (uid: string) => {
   }
 }
 
-export const fetchDesciptionTextAndAddToLocalStorage = async (dispatch: any, uid: string) => {
+export const fetchDesciptionTextAndAddToLocalStorage = async (
+  dispatch: Dispatch<Action>,
+  uid: string,
+) => {
   // set the images in Zustand
   const descriptionText = await getDescriptionTextFromFirestore(uid)
   dispatch(setDescriptionText(descriptionText))
@@ -35,7 +40,7 @@ export const updateDescriptionTextInFirestore = (
 export const updateDescriptionTextInReduxAndFirestore = async (
   desciptionText: UserDescriptionTextType,
   uid: string,
-  dispatch: any,
+  dispatch: Dispatch<Action>,
 ) => {
   dispatch(setDescriptionText(desciptionText))
   await updateDescriptionTextInFirestore(desciptionText, uid)

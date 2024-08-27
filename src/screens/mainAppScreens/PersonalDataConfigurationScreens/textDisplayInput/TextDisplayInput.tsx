@@ -1,6 +1,6 @@
 import React from 'react'
 import './styles.css'
-import { background, backgroundLight, white } from '../../../../assets/styles/colors'
+import { background, white } from '../../../../assets/styles/colors'
 export type TextDisplayInputProps = {
   label: string
   value: string

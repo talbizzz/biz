@@ -1,22 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import 'firebase/auth'
-import {
-  GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-} from 'firebase/auth'
-import { auth } from '../../config/firebase'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { GlobalStateType } from '../../types/GlobalStateType'
 import { useNavigate } from 'react-router-dom'
 import './style.css'
 import { background, primary } from '../../assets/styles/colors'
 import Google from '../../assets/Google.svg'
 import { AuthenticationForm } from './AuthenticationForm'
-import { setUser } from '../../store/slices/userSlice/userSlice'
-import { UserSliceType } from '../../types/UserSliceType'
-import { getUserFromFirestore, postNewUserToFirestore } from '../../connect/userInfoRequests'
 import { useHandleAuthentication } from './useHandleAuthentication'
 
 export enum AuthenticationFormType {
@@ -49,7 +39,6 @@ export const Authentication = () => {
     setPasswordRepeat,
     authenticationFormType,
     handleEmailAuthentication,
-    handleAuthenticationFormSwitch,
     handleGoogleSignIn,
   } = useHandleAuthentication()
 

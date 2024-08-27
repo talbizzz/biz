@@ -1,4 +1,4 @@
-import React, { Children } from 'react'
+import React from 'react'
 import { background, backgroundLight } from '../../assets/styles/colors'
 import './styles.css'
 

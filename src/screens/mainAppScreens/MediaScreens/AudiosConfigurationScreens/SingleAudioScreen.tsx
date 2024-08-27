@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useHandleAudiosUpload } from './utils/useHandleAudiosUpload'
 import { FlexDirection } from '../../../../constants/StylingConstants'
 import { TextDisplayInput } from '../../PersonalDataConfigurationScreens/textDisplayInput/TextDisplayInput'
@@ -8,7 +8,7 @@ import { PerformerType } from '../../../../types/AssetsTypes'
 import { TextButton } from '../../../../components/textButton/TextButton'
 import { PerformerInput } from './components/PerformerInput'
 import ClipLoader from 'react-spinners/ClipLoader'
-import { background, backgroundLight, black, white } from '../../../../assets/styles/colors'
+import { background, backgroundLight } from '../../../../assets/styles/colors'
 import { globalStyles } from '../../../../assets/styles/globalStyles'
 
 type ModulablePerfomerType = { uid: string } & PerformerType
@@ -35,9 +35,11 @@ export const SingleAudioScreen = () => {
       : [],
   )
 
-  const handleNewAudioUpload = (e: any) => {
-    setAudioAsBlob(e.target.files[0])
-    setAudioUrl(URL.createObjectURL(e.target.files[0]))
+  const handleNewAudioUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setAudioAsBlob(e.target.files[0])
+      setAudioUrl(URL.createObjectURL(e.target.files[0]))
+    }
   }
 
   const handleSubmit = () => {

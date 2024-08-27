@@ -1,6 +1,6 @@
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { GlobalStateType } from '../../../../../types/GlobalStateType'
-import React, { useEffect, useState } from 'react'
 import { v4 as uuid } from 'uuid'
 import {
   getUserAudiosAndAddToLocalStorage,
@@ -23,7 +23,6 @@ export const useHandleAudiosUpload = () => {
 
   //ROUTER
   const navigate = useNavigate()
-  const location = useLocation()
 
   //CONSTANTS
   const pathToUploadedAudio = `${uid}/audios/${uuid()}`
