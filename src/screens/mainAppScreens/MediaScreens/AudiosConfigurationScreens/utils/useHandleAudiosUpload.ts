@@ -9,7 +9,7 @@ import {
 import { AudioType, PerformerType } from '../../../../../types/AssetsTypes'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { storage } from '../../../../../config/firebase'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { setCurrentAudio } from '../../../../../store/slices/audioConfigurationSlice/audioConfigurationSlice'
 
 export const useHandleAudiosUpload = () => {
