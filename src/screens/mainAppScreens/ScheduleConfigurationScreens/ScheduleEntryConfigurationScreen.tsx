@@ -63,7 +63,7 @@ export const ScheduleEntryConfigurationScreen = () => {
       ) : (
         <div style={styles.appointmentContainer}>
           <LabeledToggle
-            label={appointmentToModify ? 'Unarchive appointment' : 'Archive appointment'}
+            label={appointmentToModify?.archived ? 'Unarchive appointment' : 'Archive appointment'}
             initial={appointmentToModify?.archived ?? false}
             onToggle={() => handleChange(!appointmentToModify?.archived, 'archived')}
           />
