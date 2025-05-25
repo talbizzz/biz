@@ -1,15 +1,15 @@
-import React from 'react'
-import { background } from '../../../assets/styles/colors'
-import { useHandleScheduleConnect } from './utils/useHandleScheduleConnect'
-import { AppointmentType } from '../../../types/ScheduleTypes'
-import { FlexDirection, Overflow, TextAlign } from '../../../constants/StylingConstants'
-import { ScheduleEntryCard } from './components/ScheduleEntryCard'
-import { TextButton } from '../../../components/textButton/TextButton'
-import { useNavigate } from 'react-router-dom'
-import { SVGButton, SVGButtonTypes } from '../../../components/svgButton/SVGButton'
-import { globalStyles } from '../../../assets/styles/globalStyles'
-import { setCurrentAppointment } from '../../../store/slices/scheduleSlice/scheduleSlice'
+/* eslint-disable react/react-in-jsx-scope */
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { background } from '../../../assets/styles/colors'
+import { globalStyles } from '../../../assets/styles/globalStyles'
+import { SVGButton, SVGButtonTypes } from '../../../components/svgButton/SVGButton'
+import { TextButton } from '../../../components/textButton/TextButton'
+import { FlexDirection, Overflow, TextAlign } from '../../../constants/StylingConstants'
+import { setCurrentAppointment } from '../../../store/slices/scheduleSlice/scheduleSlice'
+import { AppointmentType } from '../../../types/ScheduleTypes'
+import { ScheduleEntryCard } from './components/ScheduleEntryCard'
+import { useHandleScheduleConnect } from './utils/useHandleScheduleConnect'
 
 export const ScheduleConfigurationScreen = () => {
   const { schedule } = useHandleScheduleConnect()

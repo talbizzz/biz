@@ -1,13 +1,13 @@
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { GlobalStateType } from '../../../../types/GlobalStateType'
-import { AppointmentType } from '../../../../types/ScheduleTypes'
+import { useNavigate } from 'react-router-dom'
+import { v4 as uuid } from 'uuid'
 import {
   fetchScheduleAndAddToLocalStorage,
   updateScheduleInReduxAndFirestore,
 } from '../../../../connect/userScheduleRequests'
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { v4 as uuid } from 'uuid'
+import { GlobalStateType } from '../../../../types/GlobalStateType'
+import { AppointmentType } from '../../../../types/ScheduleTypes'
 
 export const useHandleScheduleConnect = () => {
   const schedule = useSelector((state: GlobalStateType) => state.scheduleSlice.schedule)
@@ -57,6 +57,10 @@ export const useHandleScheduleConnect = () => {
       navigate(-1)
     })
   }
+
+  useEffect(() => {
+    console.log('appointmentToModify: ', appointmentToModify)
+  }, [appointmentToModify])
 
   return {
     loading,

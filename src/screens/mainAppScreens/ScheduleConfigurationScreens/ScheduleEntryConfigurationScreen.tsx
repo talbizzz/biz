@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react'
-import { TextDisplayInput } from '../PersonalDataConfigurationScreens/textDisplayInput/TextDisplayInput'
-import { FlexDirection, Overflow } from '../../../constants/StylingConstants'
-import { TextButton } from '../../../components/textButton/TextButton'
-import { PerformerInput } from '../MediaScreens/AudiosConfigurationScreens/components/PerformerInput'
-import { PerformerType } from '../../../types/AssetsTypes'
-import { SVGButton, SVGButtonTypes } from '../../../components/svgButton/SVGButton'
-import { v4 as uuid } from 'uuid'
-import { useHandleScheduleConnect } from './utils/useHandleScheduleConnect'
 import ClipLoader from 'react-spinners/ClipLoader'
+import { v4 as uuid } from 'uuid'
 import { background, backgroundLight } from '../../../assets/styles/colors'
 import { globalStyles } from '../../../assets/styles/globalStyles'
+import { LabeledToggle } from '../../../components/LabeledToggle'
+import { SVGButton, SVGButtonTypes } from '../../../components/svgButton/SVGButton'
+import { TextButton } from '../../../components/textButton/TextButton'
+import { FlexDirection, Overflow } from '../../../constants/StylingConstants'
+import { PerformerType } from '../../../types/AssetsTypes'
+import { PerformerInput } from '../MediaScreens/AudiosConfigurationScreens/components/PerformerInput'
+import { TextDisplayInput } from '../PersonalDataConfigurationScreens/textDisplayInput/TextDisplayInput'
+import { useHandleScheduleConnect } from './utils/useHandleScheduleConnect'
 
 type ModulablePerfomerType = { uid: string } & PerformerType
 
@@ -31,7 +32,7 @@ export const ScheduleEntryConfigurationScreen = () => {
       : [],
   )
 
-  const handleChange = (value: string, key: string) => {
+  const handleChange = (value: string | boolean, key: string) => {
     setAppointmentToModify({ ...appointmentToModify, [key]: value })
   }
 
@@ -61,6 +62,11 @@ export const ScheduleEntryConfigurationScreen = () => {
         />
       ) : (
         <div style={styles.appointmentContainer}>
+          <LabeledToggle
+            label={appointmentToModify ? 'Unarchive appointment' : 'Archive appointment'}
+            initial={appointmentToModify?.archived ?? false}
+            onToggle={() => handleChange(!appointmentToModify?.archived, 'archived')}
+          />
           <TextDisplayInput
             label='Title'
             value={appointmentToModify?.title ?? ''}

@@ -9,4 +9,5 @@ export type AppointmentType = {
   time?: string
   eventLink: string | undefined
   performers?: PerformerType[]
+  archived?: boolean
 }

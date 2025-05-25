@@ -1,9 +1,9 @@
-import React from 'react'
-import { AppointmentType } from '../../../../types/ScheduleTypes'
-import { FlexDirection } from '../../../../constants/StylingConstants'
+/* eslint-disable react/react-in-jsx-scope */
 import { useDispatch } from 'react-redux'
-import { setCurrentAppointment } from '../../../../store/slices/scheduleSlice/scheduleSlice'
 import { useNavigate } from 'react-router-dom'
+import { FlexDirection } from '../../../../constants/StylingConstants'
+import { setCurrentAppointment } from '../../../../store/slices/scheduleSlice/scheduleSlice'
+import { AppointmentType } from '../../../../types/ScheduleTypes'
 
 export type ScheduleEntryCardProps = {
   scheduleEntryId: string
@@ -43,8 +43,11 @@ export const ScheduleEntryCard = (props: ScheduleEntryCardProps) => {
       <div>
         <div style={styles.dateContainer}>{getDateWithMonthName(props.scheduleEntry.date)}</div>
         <div>{props.scheduleEntry.time}</div>
+        <div>{props.scheduleEntry.title}</div>
       </div>
-      <div>{props.scheduleEntry.location}</div>
+      <div>
+        <div>{props.scheduleEntry.location}</div>
+      </div>
     </div>
   )
 }
@@ -63,5 +66,10 @@ const styles = {
   dateContainer: {
     fontWeight: 'lighter',
     fontSize: 'xx-large',
+  },
+  archivedContainer: {
+    color: 'red',
+    fontStyle: 'italic',
+    justifySelf: 'flex-end',
   },
 }

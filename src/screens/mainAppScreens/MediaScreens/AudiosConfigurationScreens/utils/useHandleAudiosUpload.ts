@@ -1,16 +1,16 @@
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { GlobalStateType } from '../../../../../types/GlobalStateType'
+import { useNavigate } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
+import { storage } from '../../../../../config/firebase'
 import {
   getUserAudiosAndAddToLocalStorage,
   updateAudiosInReduxAndFirestore,
 } from '../../../../../connect/userAssetsRequests'
-import { AudioType, PerformerType } from '../../../../../types/AssetsTypes'
-import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
-import { storage } from '../../../../../config/firebase'
-import { useNavigate } from 'react-router-dom'
 import { setCurrentAudio } from '../../../../../store/slices/audioConfigurationSlice/audioConfigurationSlice'
+import { AudioType, PerformerType } from '../../../../../types/AssetsTypes'
+import { GlobalStateType } from '../../../../../types/GlobalStateType'
 
 export const useHandleAudiosUpload = () => {
   //REDUX
@@ -55,12 +55,13 @@ export const useHandleAudiosUpload = () => {
   }, [audios])
 
   /**
-   * @description updates the images in redux and firestore and navigates back to the previous page
+   * @description updates the audios in redux and firestore and navigates back to the previous page
    * @param audios new audios list
    */
   const modifyAudios = (newAudios: AudioType[]) => {
     console.log('new audios', newAudios)
     setLoading(true)
+    setAudios(newAudios)
     updateAudiosInReduxAndFirestore(newAudios, uid, dispatch)
       .then(() => {
         getUserAudiosAndAddToLocalStorage(uid, dispatch)

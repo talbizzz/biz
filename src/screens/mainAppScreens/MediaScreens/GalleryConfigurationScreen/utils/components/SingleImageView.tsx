@@ -1,15 +1,15 @@
 import React from 'react'
-import './styles.css'
-import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import ArrowRight from '../../../../../../assets/ArrowRight.svg'
+import Close from '../../../../../../assets/Close.svg'
+import { white } from '../../../../../../assets/styles/colors'
+import { TextButton } from '../../../../../../components/textButton/TextButton'
+import { ImageType } from '../../../../../../types/AssetsTypes'
 import { GlobalStateType } from '../../../../../../types/GlobalStateType'
 import { TextDisplayInput } from '../../../../PersonalDataConfigurationScreens/textDisplayInput/TextDisplayInput'
-import { white } from '../../../../../../assets/styles/colors'
-import Close from '../../../../../../assets/Close.svg'
-import ArrowRight from '../../../../../../assets/ArrowRight.svg'
-import { ImageType } from '../../../../../../types/AssetsTypes'
 import { useHandleUploadImages } from '../connect/useHandleUploadImages'
-import { TextButton } from '../../../../../../components/textButton/TextButton'
+import './styles.css'
 
 export const SingleImageView = () => {
   const currentImage = useSelector((state: GlobalStateType) => state.gallerySlice.currentImage)
@@ -40,6 +40,8 @@ export const SingleImageView = () => {
   }
 
   const handleDelete = (uid: string) => {
+    console.log('images', images)
+    console.log('deleting image with uid: ', uid)
     const newImagesList = images.filter((image: ImageType) => image.uid !== uid)
     modifyImages(newImagesList)
   }
